@@ -68,16 +68,16 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Implement list_all_as_string function in Notification repository.`
     -   [x] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Commit: `Implement receive_notification function in Notification service.`
-    -   [ ] Commit: `Implement receive function in Notification controller.`
-    -   [ ] Commit: `Implement list_messages function in Notification service.`
-    -   [ ] Commit: `Implement list function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
+    -   [x] Commit: `Create Notification service struct skeleton.`
+    -   [x] Commit: `Implement subscribe function in Notification service.`
+    -   [x] Commit: `Implement subscribe function in Notification controller.`
+    -   [x] Commit: `Implement unsubscribe function in Notification service.`
+    -   [x] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [x] Commit: `Implement receive_notification function in Notification service.`
+    -   [x] Commit: `Implement receive function in Notification controller.`
+    -   [x] Commit: `Implement list_messages function in Notification service.`
+    -   [x] Commit: `Implement list function in Notification controller.`
+    -   [x] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -96,3 +96,15 @@ Static variables in rust are usually immutable by default as an intended feature
 Lazy static is used to define static variables by managing access to the variable thus allowing safe mutation in multithreading. Therefore, lazy_static provides a way for static variables that is "similar" to those in Java, but with safe handling according to Rust's concurrency model.
 
 #### Reflection Subscriber-2
+1. Have you explored things outside of the steps in the tutorial, for example: src/lib.rs? If not, explain why you did not do so. If yes, explain things that you have learned from those other parts of code.
+
+In Rust, `src/lib.rs` often serves as the central location where crucial elements needed throughout the application are defined. For example, in the `lib.rs` file, we commonly find definitions like pub type `Result<T, E=Error> = std::result::Result<T, E>;`. This is used to simplify error management by setting `Error` as the default error type for the Result type, which is a standard approach to streamline error handling.
+Additionally, `lib.rs` may also define structures such as `ErrorResponse`, which represents error responses with status codes and messages. This reflects an organized and centralized structure, facilitating access to application configuration, root URLs, and singleton settings, making it easier for other parts of the application to access and utilize common information.
+
+2. Since you have completed the tutorial by now and have tried to test your notification system by spawning multiple instances of Receiver, explain how Observer pattern eases you to plug in more subscribers. How about spawning more than one instance of Main app, will it still be easy enough to add to the system?
+
+The Observer Pattern introduces a handful of benefits like Decoupling where it decouples the subject (publisher) from its observers (subscribers). This means that adding new subscribers doesn't require changes to the subject's implementation. Similarly, adding new types of subjects doesn't require changes to existing subscribers. This also increases scalability and flexibility for future addons by adhering the Open-Closed Principle. Each instance of has it's own system making possible to operate independently without sharing notifications.
+
+3. Have you tried to make your own Tests, or enhance documentation on your Postman collection? If you have tried those features, tell us whether it is useful for your work (it can be your tutorial work or your Group Project).
+
+Postman stands out as an indispensable tool for API management, offering robust testing and documentation features that streamline the process of ensuring API reliability and usability. Its intuitive interface facilitates the creation and execution of tests, enabling developers to validate endpoints and responses seamlessly. Additionally, Postman simplifies the generation of comprehensive API documentation, automatically creating documentation based on configured requests and responses. Whether working on current projects like web development with Django or planning for future endeavors, Postman's versatility and efficiency make it a valuable asset for developers seeking to streamline API management tasks.
